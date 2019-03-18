@@ -116,6 +116,10 @@ def json_processing(server_name, listen_port, monitor_type):
         namenode_dict['median_datanodes_usages'] = datanodes_usages['nodeUsage']['median']
         namenode_dict['max_datanodes_usages'] = datanodes_usages['nodeUsage']['max']
         namenode_dict['stdDev_datanodes_usages'] = datanodes_usages['nodeUsage']['stdDev']
+
+        namenode_dict['hadoop_version'] = str(
+            nninfo_json['beans'][0]['Version']).split(',')[0]
+
         live_nodes = json.loads(nninfo_json['beans'][0]['LiveNodes'])
 
         HIGH_CONST = 99999
